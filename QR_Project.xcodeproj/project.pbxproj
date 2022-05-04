@@ -94,8 +94,8 @@
 		792A443828222F1F000AFDB1 /* QR_Project */ = {
 			isa = PBXGroup;
 			children = (
+				792A4463282255CF000AFDB1 /* HomePage */,
 				792A443928222F1F000AFDB1 /* QR_ProjectApp.swift */,
-				792A443B28222F1F000AFDB1 /* ContentView.swift */,
 				792A443D28222F21000AFDB1 /* Assets.xcassets */,
 				792A443F28222F21000AFDB1 /* Preview Content */,
 			);
@@ -125,6 +125,14 @@
 				792A445628222F21000AFDB1 /* QR_ProjectUITestsLaunchTests.swift */,
 			);
 			path = QR_ProjectUITests;
+			sourceTree = "<group>";
+		};
+		792A4463282255CF000AFDB1 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				792A443B28222F1F000AFDB1 /* ContentView.swift */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
