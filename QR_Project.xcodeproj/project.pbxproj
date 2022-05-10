@@ -14,6 +14,9 @@
 		792A444B28222F21000AFDB1 /* QR_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792A444A28222F21000AFDB1 /* QR_ProjectTests.swift */; };
 		792A445528222F21000AFDB1 /* QR_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792A445428222F21000AFDB1 /* QR_ProjectUITests.swift */; };
 		792A445728222F21000AFDB1 /* QR_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792A445628222F21000AFDB1 /* QR_ProjectUITestsLaunchTests.swift */; };
+		79CF4A2428290A3E005C1891 /* PicturePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF4A2328290A3E005C1891 /* PicturePicker.swift */; };
+		79F12A8A28248CD800D04BA9 /* QR_ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F12A8928248CD800D04BA9 /* QR_ProjectContent.swift */; };
+		79F12A8C28248D2300D04BA9 /* QR_ProjectContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F12A8B28248D2300D04BA9 /* QR_ProjectContentRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		792A445028222F21000AFDB1 /* QR_ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QR_ProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		792A445428222F21000AFDB1 /* QR_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_ProjectUITests.swift; sourceTree = "<group>"; };
 		792A445628222F21000AFDB1 /* QR_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		79CF4A2328290A3E005C1891 /* PicturePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePicker.swift; sourceTree = "<group>"; };
+		79F12A8928248CD800D04BA9 /* QR_ProjectContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_ProjectContent.swift; sourceTree = "<group>"; };
+		79F12A8B28248D2300D04BA9 /* QR_ProjectContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_ProjectContentRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,8 @@
 		792A443828222F1F000AFDB1 /* QR_Project */ = {
 			isa = PBXGroup;
 			children = (
+				79CF4A2028290A1E005C1891 /* ImagePicker */,
+				79F12A8828248CB700D04BA9 /* ContentView_Page */,
 				792A4463282255CF000AFDB1 /* HomePage */,
 				792A443928222F1F000AFDB1 /* QR_ProjectApp.swift */,
 				792A443D28222F21000AFDB1 /* Assets.xcassets */,
@@ -133,6 +141,23 @@
 				792A443B28222F1F000AFDB1 /* ContentView.swift */,
 			);
 			path = HomePage;
+			sourceTree = "<group>";
+		};
+		79CF4A2028290A1E005C1891 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				79CF4A2328290A3E005C1891 /* PicturePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		79F12A8828248CB700D04BA9 /* ContentView_Page */ = {
+			isa = PBXGroup;
+			children = (
+				79F12A8928248CD800D04BA9 /* QR_ProjectContent.swift */,
+				79F12A8B28248D2300D04BA9 /* QR_ProjectContentRow.swift */,
+			);
+			path = ContentView_Page;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				792A443C28222F1F000AFDB1 /* ContentView.swift in Sources */,
+				79CF4A2428290A3E005C1891 /* PicturePicker.swift in Sources */,
+				79F12A8C28248D2300D04BA9 /* QR_ProjectContentRow.swift in Sources */,
+				79F12A8A28248CD800D04BA9 /* QR_ProjectContent.swift in Sources */,
 				792A443A28222F1F000AFDB1 /* QR_ProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

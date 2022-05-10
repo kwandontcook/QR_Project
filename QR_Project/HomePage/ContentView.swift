@@ -30,13 +30,12 @@ struct ContentView: View {
                     Spacer().frame(height: 160)
                     // Button for navigation to the next view
                     Button {
-                        // Update the status
                         self.isShowpresented = true
                     } label: {
                         // Navigation Link to next page
                         NavigationLink("Start", isActive: $isShowpresented) {
                             // Title for the navigation link
-                            Text("i am here")
+                            QR_ProjectContent()
                         }.foregroundColor(.white)
                         .font(.system(size: 16, weight: .thin, design: .default))
                         .padding([.leading,.trailing], 100)
