@@ -10,6 +10,7 @@ import SwiftUI
 struct PicturePicker : UIViewControllerRepresentable{
     @Binding var sourceType : UIImagePickerController.SourceType
     @Binding var image: UIImage
+    @Environment(\.presentationMode) private var presentationMode
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let vc = UIImagePickerController()
@@ -35,7 +36,7 @@ struct PicturePicker : UIViewControllerRepresentable{
                 picPicker.image = image
             }
             
-            picker.dismiss(animated: true, completion: nil)
+            picPicker.presentationMode.wrappedValue.dismiss()
         }
     }
     

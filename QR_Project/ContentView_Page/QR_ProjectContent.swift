@@ -122,9 +122,9 @@ struct QR_ProjectContent: View {
                             }
                         }.fullScreenCover(isPresented: $isBtnStatus) {
                             if(activeSheetOption == .choose_picture_library || activeSheetOption == .choose_video_library ){
-                                PicturePicker(sourceType: .constant(.photoLibrary), image: .constant(selected_image!))
+                                PicturePicker(sourceType: .constant(.photoLibrary), image: .constant(selected_image!)).edgesIgnoringSafeArea(.all)
                             }else if(activeSheetOption == .open_camera){
-                                PicturePicker(sourceType: .constant(.camera), image: .constant(selected_image!))
+                                PicturePicker(sourceType: .constant(.camera), image: .constant(selected_image!)).edgesIgnoringSafeArea(.all)
                             }
                         }
                 }
