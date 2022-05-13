@@ -9,14 +9,18 @@ import SwiftUI
 
 struct PicturePicker : UIViewControllerRepresentable{
     @Binding var sourceType : UIImagePickerController.SourceType
-    @Binding var image: UIImage
+    @Binding var file_data : Data?
+    @Binding var file_url : URL?
+    @Binding var isShowingData : Bool
+    @Binding var mediaType : [String]
     @Environment(\.presentationMode) private var presentationMode
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let vc = UIImagePickerController()
         vc.delegate = context.coordinator
+        vc.allowsEditing = true
         vc.sourceType = sourceType
-        vc.mediaTypes = ["public.image", "public.movie"]
+        vc.mediaTypes = mediaType
         return vc 
     }
     
@@ -32,16 +36,26 @@ struct PicturePicker : UIViewControllerRepresentable{
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let image = info[.imageURL] as? UIImage{
-                picPicker.image = image
+            
+            if let image_url = info[.editedImage] as? UIImage{
+                do{
+                    self.picPicker.file_data = image_url.pngData()
+                    self.picPicker.isShowingData = true
+                }catch{
+                    print("Failed to fetch data")
+                }
             }
             
-            picPicker.presentationMode.wrappedValue.dismiss()
+            if let video_url = info[.mediaURL] as? URL{
+                self.picPicker.file_url = video_url
+                self.picPicker.isShowingData = true
+            }
+            
+            picker.dismiss(animated: true, completion: nil)
         }
     }
     
     func makeCoordinator() -> Coordinator {
         return Coordinator(picPicker: self)
     }
-    
 }

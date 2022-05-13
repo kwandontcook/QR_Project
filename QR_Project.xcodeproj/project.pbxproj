@@ -14,6 +14,9 @@
 		792A444B28222F21000AFDB1 /* QR_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792A444A28222F21000AFDB1 /* QR_ProjectTests.swift */; };
 		792A445528222F21000AFDB1 /* QR_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792A445428222F21000AFDB1 /* QR_ProjectUITests.swift */; };
 		792A445728222F21000AFDB1 /* QR_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792A445628222F21000AFDB1 /* QR_ProjectUITestsLaunchTests.swift */; };
+		79B48B6B282A3A830026EE2C /* PicturePicker_Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B48B6A282A3A830026EE2C /* PicturePicker_Image.swift */; };
+		79B95A79282DE98200C28E1C /* MusicList_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B95A78282DE98200C28E1C /* MusicList_View.swift */; };
+		79B95A7B282DEB2400C28E1C /* MusicList_View_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B95A7A282DEB2400C28E1C /* MusicList_View_Cell.swift */; };
 		79CF4A2428290A3E005C1891 /* PicturePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF4A2328290A3E005C1891 /* PicturePicker.swift */; };
 		79F12A8A28248CD800D04BA9 /* QR_ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F12A8928248CD800D04BA9 /* QR_ProjectContent.swift */; };
 		79F12A8C28248D2300D04BA9 /* QR_ProjectContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F12A8B28248D2300D04BA9 /* QR_ProjectContentRow.swift */; };
@@ -47,6 +50,10 @@
 		792A445028222F21000AFDB1 /* QR_ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QR_ProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		792A445428222F21000AFDB1 /* QR_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_ProjectUITests.swift; sourceTree = "<group>"; };
 		792A445628222F21000AFDB1 /* QR_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		799334D6282DE1E200CDB237 /* QR-Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "QR-Project-Info.plist"; sourceTree = SOURCE_ROOT; };
+		79B48B6A282A3A830026EE2C /* PicturePicker_Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePicker_Image.swift; sourceTree = "<group>"; };
+		79B95A78282DE98200C28E1C /* MusicList_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicList_View.swift; sourceTree = "<group>"; };
+		79B95A7A282DEB2400C28E1C /* MusicList_View_Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicList_View_Cell.swift; sourceTree = "<group>"; };
 		79CF4A2328290A3E005C1891 /* PicturePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePicker.swift; sourceTree = "<group>"; };
 		79F12A8928248CD800D04BA9 /* QR_ProjectContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_ProjectContent.swift; sourceTree = "<group>"; };
 		79F12A8B28248D2300D04BA9 /* QR_ProjectContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_ProjectContentRow.swift; sourceTree = "<group>"; };
@@ -100,11 +107,13 @@
 		792A443828222F1F000AFDB1 /* QR_Project */ = {
 			isa = PBXGroup;
 			children = (
+				79B95A77282DE97000C28E1C /* MusicList */,
 				79CF4A2028290A1E005C1891 /* ImagePicker */,
 				79F12A8828248CB700D04BA9 /* ContentView_Page */,
 				792A4463282255CF000AFDB1 /* HomePage */,
 				792A443928222F1F000AFDB1 /* QR_ProjectApp.swift */,
 				792A443D28222F21000AFDB1 /* Assets.xcassets */,
+				799334D6282DE1E200CDB237 /* QR-Project-Info.plist */,
 				792A443F28222F21000AFDB1 /* Preview Content */,
 			);
 			path = QR_Project;
@@ -143,10 +152,20 @@
 			path = HomePage;
 			sourceTree = "<group>";
 		};
+		79B95A77282DE97000C28E1C /* MusicList */ = {
+			isa = PBXGroup;
+			children = (
+				79B95A78282DE98200C28E1C /* MusicList_View.swift */,
+				79B95A7A282DEB2400C28E1C /* MusicList_View_Cell.swift */,
+			);
+			path = MusicList;
+			sourceTree = "<group>";
+		};
 		79CF4A2028290A1E005C1891 /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
 				79CF4A2328290A3E005C1891 /* PicturePicker.swift */,
+				79B48B6A282A3A830026EE2C /* PicturePicker_Image.swift */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -290,10 +309,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79B95A79282DE98200C28E1C /* MusicList_View.swift in Sources */,
 				792A443C28222F1F000AFDB1 /* ContentView.swift in Sources */,
+				79B95A7B282DEB2400C28E1C /* MusicList_View_Cell.swift in Sources */,
 				79CF4A2428290A3E005C1891 /* PicturePicker.swift in Sources */,
 				79F12A8C28248D2300D04BA9 /* QR_ProjectContentRow.swift in Sources */,
 				79F12A8A28248CD800D04BA9 /* QR_ProjectContent.swift in Sources */,
+				79B48B6B282A3A830026EE2C /* PicturePicker_Image.swift in Sources */,
 				792A443A28222F1F000AFDB1 /* QR_ProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,7 +478,9 @@
 				DEVELOPMENT_TEAM = 35JZP644A6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "QR-Project-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"Use for making image\"";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need access to microphone";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -486,7 +510,9 @@
 				DEVELOPMENT_TEAM = 35JZP644A6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "QR-Project-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"Use for making image\"";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need access to microphone";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
