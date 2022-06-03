@@ -21,6 +21,6 @@ struct MusicList_View_Cell: View {
 
 struct MusicList_View_Cell_Previews: PreviewProvider {
     static var previews: some View {
-        MusicList_View_Cell(song_title: .constant("123"), song_singer: .constant("122")).previewLayout(.fixed(width: 300, height: 100))
+        MusicList_View_Cell(song_title: .constant("Silent Majortiy"), song_singer: .constant("Keyakizaka")).previewLayout(.fixed(width: 300, height: 100))
     }
 }

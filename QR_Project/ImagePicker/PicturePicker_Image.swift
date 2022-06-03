@@ -49,13 +49,8 @@ struct VideoPicker : Hashable, Identifiable{
 struct MusicPlayer : Hashable, Identifiable{
     var id = UUID()
     var file_url: URL?
-    var mediaItems : [MPMediaItem]?
     
     init(){
-        guard let mediaItems = MPMediaQuery.songs().items else{
-            return;
-        }
-        self.mediaItems = mediaItems ?? nil
         self.file_url = URL(string: "")
     }
 }

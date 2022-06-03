@@ -9,44 +9,91 @@ import SwiftUI
 
 
 
+class QR_Code_Setting: ObservableObject {
+    @Published var url : URL?
+    @Published var status : Bool?
+    
+    func translate_url(){
+        let path = url
+        let fileNo = path?.lastPathComponent
+        let parent = path?.deletingLastPathComponent()
+        
+        if(fileNo != nil && parent != nil){
+            print("FileNo" + fileNo!.description)
+            print("Parent " + parent!.description)
+            status = true
+        }else{
+            status = false
+        }
+    }
+}
+
 
 struct ContentView: View {
-    
-    @State var isShowpresented = false
-        
-    var icon : some View{
-        Image("Icon").resizable().frame(width: 200, height: 200)
-    }
+    @EnvironmentObject var obj : QR_Code_Setting
     
     var body: some View {
-        Color.white.overlay {
+        VStack{
+            if(obj.status == true){
+                QR_Code_Result_View()
+            }else{
+                ContentView_body()
+            }
+        }.animation(.spring(), value: obj.status)
+    }
+}
+
+struct ContentView_body: View{
+    @State var isShowpresented = false
+    @State var isLoginpresented = false
+    
+    
+    var body: some View{
+        
+        
+        ZStack{
             NavigationView{
-                VStack(spacing:10){
+                VStack(spacing: 10){
                     // ImageView for the homePage
-                    icon
+                    Image("Icon").resizable().aspectRatio(contentMode: .fit).frame(maxWidth :230, maxHeight: 230)
                     // Title for the homePage
                     Text("QR Code Application").font(.title)
-                    // Just give some space between the title and btn
-                    Spacer().frame(height: 160)
                     // Button for navigation to the next view
-                    Button {
-                        self.isShowpresented = true
-                    } label: {
-                        // Navigation Link to next page
-                        NavigationLink("Start", isActive: $isShowpresented) {
-                            // Title for the navigation link
-                            QR_ProjectContent()
+                    
+                    NavigationLink("", isActive: $isShowpresented){
+                        QR_ProjectContent()
+                    }
+                    NavigationLink("", isActive: $isLoginpresented){
+                        Login_VC()
+                    }
+                    
+                    VStack(spacing: 15){
+                        Button {
+                            self.isShowpresented = true
+                        } label: {
+                            // Navigation Link to next page
+                            Text("Start")
                         }.foregroundColor(.white)
-                        .font(.system(size: 16, weight: .thin, design: .default))
-                        .padding([.leading,.trailing], 100)
-                        .padding([.top,.bottom], 10)
-                        .background(Color(.sRGB, red: 180/255, green: 56/255, blue: 56/255, opacity: 1))
-                    }.cornerRadius(5.0).shadow(color: .black, radius: 0.7)
-                    // Just give some space between the title and btn
-                    Spacer()
-                }
+                            .font(.system(size: 16, weight: .thin, design: .default))
+                            .frame(width: 230, height: 40, alignment: .center)
+                            .background(Color(.sRGB, red: 180/255, green: 56/255, blue: 56/255, opacity: 1))
+                            .cornerRadius(5.0).shadow(color: .black, radius: 0.7)
+                            
+                        
+                        Button{
+                            self.isLoginpresented = true
+                        } label: {
+                            Text("Login")
+                        }.foregroundColor(.white)
+                            .font(.system(size: 16, weight: .thin, design: .default))
+                            .frame(width: 230, height: 40, alignment: .center)
+                            .background(Color(.sRGB, red: 180/255, green: 56/255, blue: 56/255, opacity: 1))
+                            .cornerRadius(5.0).shadow(color: .black, radius: 0.7)
+                    }
+                    
+                }.navigationBarHidden(true)
             }
-        }.edgesIgnoringSafeArea(.all)
+        }
     }
 }
 
