@@ -19,6 +19,7 @@
 		792A445728222F21000AFDB1 /* QR_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792A445628222F21000AFDB1 /* QR_ProjectUITestsLaunchTests.swift */; };
 		794DDF392833189D004E4031 /* MusicList_Recording_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794DDF382833189D004E4031 /* MusicList_Recording_View.swift */; };
 		794DDF3C28334405004E4031 /* QR_Code_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794DDF3B28334405004E4031 /* QR_Code_View.swift */; };
+		79561133284EC9370067D949 /* QR_Code_Result_View_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79561132284EC9370067D949 /* QR_Code_Result_View_User.swift */; };
 		797536CB28347380007F8E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 797536CA28347380007F8E38 /* GoogleService-Info.plist */; };
 		797536CF283474B6007F8E38 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 797536CE283474B6007F8E38 /* FirebaseAnalytics */; };
 		797536D1283474B6007F8E38 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 797536D0283474B6007F8E38 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -94,6 +95,7 @@
 		792A445628222F21000AFDB1 /* QR_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		794DDF382833189D004E4031 /* MusicList_Recording_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicList_Recording_View.swift; sourceTree = "<group>"; };
 		794DDF3B28334405004E4031 /* QR_Code_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_Code_View.swift; sourceTree = "<group>"; };
+		79561132284EC9370067D949 /* QR_Code_Result_View_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_Code_Result_View_User.swift; sourceTree = "<group>"; };
 		797536CA28347380007F8E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		797537052834B590007F8E38 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		798FAF09283C782800DF8F6D /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			children = (
 				794DDF3B28334405004E4031 /* QR_Code_View.swift */,
 				791E59AD28403D73005BEBE7 /* QR_Code_Result_View.swift */,
+				79561132284EC9370067D949 /* QR_Code_Result_View_User.swift */,
 			);
 			path = QR_Code_View;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				79F12A8A28248CD800D04BA9 /* QR_ProjectContent.swift in Sources */,
 				790FFCB32846C156007DFC9E /* Login_VC.swift in Sources */,
 				798FAF0A283C782800DF8F6D /* ActivityVC.swift in Sources */,
+				79561133284EC9370067D949 /* QR_Code_Result_View_User.swift in Sources */,
 				79B48B6B282A3A830026EE2C /* PicturePicker_Image.swift in Sources */,
 				790FFCB62846C5F0007DFC9E /* User_Profile_VC.swift in Sources */,
 				792A443A28222F1F000AFDB1 /* QR_ProjectApp.swift in Sources */,

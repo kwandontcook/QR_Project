@@ -109,6 +109,8 @@ struct Register_VC: View {
                     .cornerRadius(15.0).shadow(color: .black, radius: 0.7)
                     .alert(isPresented: $register_statsus_error) {
                         Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("Ok")))
+                    }.fullScreenCover(isPresented: $register_statsus) {
+                        ContentView()   
                     }
                 
                 

@@ -10,38 +10,45 @@ import Firebase
 import FirebaseStorage
 
 class FireBase_service : ObservableObject{
-    @Published var user_email = "kwandontcook@gmail.com"
-    @Published var password = "s02048123"
-    @Published var isUploading = true
+    @Published var isUploading = false
     @Published var baseurl = ""
     
     init(){
         
     }
     
-    func login_to_firebase(data: Data, type : ActiveSheet){
-        Auth.auth().signIn(withEmail: self.user_email, password: self.password, completion: { (auth, error) in
+    func login_to_firebase(user_email : String, password : String, data: Data, type : ActiveSheet){
+        Auth.auth().signIn(withEmail: user_email, password: password, completion: { (auth, error) in
             if let e = error {
-                
+                print(e)
             }else{
                 self.data_to_real_time_db(data: data, type: type)
+                try! Auth.auth().signOut()
             }
         })
+        
     }
-
+    
     
     func data_to_real_time_db(data: Data, type : ActiveSheet){
         let ref = Database.database().reference()
         
-        guard let user_id = Auth.auth().currentUser?.uid as? String else {
+        guard let uid = Auth.auth().currentUser?.uid as? String else {
             print("failed to grab user id")
             return;
         }
         
-        let upload_ref = ref.child("files").childByAutoId()
-        upload_ref.setValue(["date": Date().description, "data_type" : type.id])
+        var upload_ref : DatabaseReference?
         
-        if let key = upload_ref.key{
+        if(uid == "rHKLQVAd1ZYSWMLv1b8OMcCddQ62"){
+            upload_ref = ref.child("files").childByAutoId()
+        }else{
+            upload_ref = ref.child("users").child(uid).child("files").childByAutoId()
+        }
+        
+        upload_ref!.setValue(["date": Date().description, "data_type" : type.id])
+        
+        if let key = upload_ref!.key{
             self.baseurl = "https://qrcodescanapp.herokuapp.com/qr_code?file=files&id=\(key)"
             self.data_upload(data: data, key: key , type : type)
         }else{
@@ -75,15 +82,13 @@ class FireBase_service : ObservableObject{
         
         upload_ref.putData(d, metadata: nil) { (metadata, error) in
             guard let metadata = metadata else {
-              self.isUploading = true
-              print("failed to get meta data")
-              return
+                self.isUploading = true
+                print("failed to get meta data")
+                return
             }
             
             print("data uploaded")
-            self.isUploading = false
+            self.isUploading = true
         }
     }
-    
-    
 }

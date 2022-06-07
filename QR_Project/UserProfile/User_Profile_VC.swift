@@ -8,24 +8,26 @@
 import SwiftUI
 
 struct User_Profile_VC: View {
+    @StateObject var obj = QR_Code_Setting()
     @StateObject var user_profile = user_service()
     @State var isPresent = false
+    @State var isLogOut = false
     
     let calendar_formatter : DateFormatter = {
         let d = DateFormatter()
         d.dateFormat = "yyyy-MM-dd"
         return d
     }()
-
+    
     var heading: some View{
         VStack(alignment: .leading, spacing: 20){
             // HStack for navigation button
             HStack(spacing: 10){
-                Button {
-                    
-                } label: {
-                    Image(systemName: "line.3.horizontal").resizable().frame(width: 25, height: 20)
-                }.tint(Color.black)
+                
+                
+                Image(systemName:"person.fill").resizable()
+                    .frame(width: 25, height: 25)
+                    .tint(Color.black).background(Circle().stroke(Color.white, lineWidth: 2.0))
                 
                 Spacer()
                 
@@ -39,15 +41,19 @@ struct User_Profile_VC: View {
                         Image(systemName: "camera.fill").resizable().frame(width: 25, height: 20)
                     }.foregroundColor(Color.black)
                 }
-
+                
                 
                 Button {
-                    
+                    user_profile.logout()
+                    isLogOut = true
                 } label: {
-                    Image(systemName:"person.fill").resizable()
+                    Image(systemName:"arrow.right.circle").resizable()
                         .frame(width: 25, height: 25)
                 }.clipShape(RoundedRectangle(cornerRadius: 15.0))
                     .tint(Color.black).background(Circle().stroke(Color.white, lineWidth: 2.0))
+                    .fullScreenCover(isPresented: $isLogOut) {
+                        ContentView()
+                    }
             }
             
             
@@ -55,9 +61,7 @@ struct User_Profile_VC: View {
             VStack(alignment: .leading){
                 Text("Welcome").font(.title2).multilineTextAlignment(.center)
                 Text(user_profile.u!.user_first_name + " " + user_profile.u!.user_last_name ).font(.title).fontWeight(.heavy)
-            }.animation(.easeIn, value: user_profile.u?.user_first_name)
-                .animation(.easeIn, value: user_profile.u?.user_last_name)
-            
+            }
         }.padding()
     }
     
@@ -66,14 +70,18 @@ struct User_Profile_VC: View {
             // Text for the history section
             Text("History").font(.title3).fontWeight(.bold)
             // Define the history item
-            ForEach(0..<4){i in
-                RoundedRectangle(cornerRadius: 15.0).fill(Color.init(uiColor: .systemGray6)).frame(height: 80).overlay {
-                    GeometryReader { geo in
-                        VStack(alignment : .leading){
-                            Text("Record \(i)").font(.body).fontWeight(.semibold)
-                            Text("\(calendar_formatter.string(from: Date()))")
-                        }.padding(.vertical).padding(.horizontal, 10)
-                    }
+            ForEach(user_profile.u_files){i in
+                NavigationLink {
+                    QR_Code_Result_View_User(obj: QR_Code_Setting(url: URL(string: "qrcodeapp://generate_qr_code/\(i.file_id)")!))
+                } label: {
+                    RoundedRectangle(cornerRadius: 15.0).fill(Color.init(uiColor: .systemGray6)).frame(height: 80).overlay {
+                        GeometryReader { geo in
+                            VStack(alignment : .leading){
+                                Text("Records").font(.body).fontWeight(.semibold)
+                                Text(i.file_date)
+                            }.padding(.vertical).padding(.horizontal, 10)
+                        }
+                    }.foregroundColor(.black)
                 }
             }
         }.padding()

@@ -13,6 +13,14 @@ class QR_Code_Setting: ObservableObject {
     @Published var url : URL?
     @Published var status : Bool?
     
+    init(){
+        
+    }
+    
+    init(url : URL){
+        self.url = url
+    }
+    
     func translate_url(){
         let path = url
         let fileNo = path?.lastPathComponent

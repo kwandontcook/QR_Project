@@ -26,7 +26,7 @@ struct SFSafariVC: UIViewControllerRepresentable {
         
         func safariViewControllerDidFinish(_ controller: SFSafariViewController){
             print("Done pressed")
-            self.sf_vc.isPressingDone = false
+            self.sf_vc.presentationMode.wrappedValue.dismiss()
         }
         
         
