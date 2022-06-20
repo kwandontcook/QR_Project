@@ -80,7 +80,7 @@ class user_service : ObservableObject {
             let user_last_name = dict["user_last_name"] as! String
             let user_email = dict["user_email"] as! String
 
-            withAnimation(.spring()) {
+            withAnimation(.linear) {
                 self.u = user(user_first_name: user_first_name, user_last_name: user_last_name, user_email: user_email)
             }
         }
@@ -99,7 +99,7 @@ class user_service : ObservableObject {
                 let date = dict ["date"] as! String
                 let data_type = dict ["data_type"] as! String
                 
-                withAnimation(.spring()) {
+                withAnimation(.linear) {
                     self.u_files.append(files(file_date: date, file_type: data_type, file_id: rest.key))
                 }
             }

@@ -48,7 +48,7 @@ struct ContentView: View {
                     if uid == "" {
                         Text("Failed to fetch user data \n please restart the app").multilineTextAlignment(.center)
                     }else if uid == "rHKLQVAd1ZYSWMLv1b8OMcCddQ62"{
-                        Text("Failed to load the user id").multilineTextAlignment(.center)
+                        Text("Failed to load the user id because this user account is not for user to use .").multilineTextAlignment(.center)
                     }else{
                         User_Profile_VC()
                     }
@@ -58,7 +58,7 @@ struct ContentView: View {
             }else{
                 ContentView_body()
             }
-        }.animation(.spring(), value: obj.status)
+        }.animation(.spring().delay(0.5), value: obj.status)
     }
 }
 
