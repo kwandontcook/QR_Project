@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 import FirebaseCore
 
 @main
@@ -18,14 +19,10 @@ struct QR_ProjectApp: App {
     
     var body: some Scene {
         WindowGroup {
-     
-            
             ContentView().onOpenURL { url in
                 settings.url = url
                 settings.translate_url()
             }.environmentObject(settings)
-             
-            // QR_Code_View(qr_code_data: .constant(Data()), qr_code_type: .constant(.Video))
         }
     }
 }

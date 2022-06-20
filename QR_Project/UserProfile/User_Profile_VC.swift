@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct User_Profile_VC: View {
-    @StateObject var obj = QR_Code_Setting()
+    @EnvironmentObject var obj : QR_Code_Setting
     @StateObject var user_profile = user_service()
     @State var isPresent = false
     @State var isLogOut = false
@@ -44,6 +44,8 @@ struct User_Profile_VC: View {
                 
                 
                 Button {
+                    obj.url = nil
+                    obj.translate_url()
                     user_profile.logout()
                     isLogOut = true
                 } label: {
@@ -96,7 +98,10 @@ struct User_Profile_VC: View {
                         history_record
                     }
                 }.padding(.top, 40).edgesIgnoringSafeArea(.all)
-                    .navigationBarHidden(true)
+                    .navigationBarHidden(true).onAppear {
+                        user_profile.retrieve_user_uploaded_files()
+                        user_profile.retrieve_user_detail()
+                    }
             }
         }
     }

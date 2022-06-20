@@ -22,16 +22,11 @@ struct QR_Code_View: View {
             Text("Processing to upload files")
         }.padding()
             .onAppear(perform: {
-                
-                
-                 guard let id = Auth.auth().currentUser?.uid else{
-                 self.service.login_to_firebase(user_email: "kwandontcook@gmail.com", password: "s02048123",data: self.qr_code_data, type: self.qr_code_type)
-                 return
-                 }
-                 
-                 self.service.data_to_real_time_db(data: self.qr_code_data, type: self.qr_code_type)
-                 
-                 
+                guard let id = Auth.auth().currentUser?.uid else{
+                    self.service.login_to_firebase(user_email: "kwandontcook@gmail.com", password: "s02048123",data: self.qr_code_data, type: self.qr_code_type)
+                    return
+                }
+                self.service.data_to_real_time_db(data: self.qr_code_data, type: self.qr_code_type)
             })
     }
     
